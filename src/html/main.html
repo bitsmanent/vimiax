@@ -1,0 +1,14 @@
+<html><script type="text/javascript">
+function include(file) {
+	var head = document.getElementsByTagName('head')[0];
+	var ns = document.createElement('script');
+	var root = chrome.extension.getURL('');
+
+	ns.type = 'text/javascript';
+	ns.src = root + file;
+	head.appendChild(ns);
+}
+
+include('src/js/classes.js');
+include('src/js/main.js');
+</script></html>

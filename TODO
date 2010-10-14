@@ -1,0 +1,130 @@
+
+Spare notes about things to do.
+
+Note: most of the following items has been run off, so it's likely they are
+incomplete or, sometimes, unanderstandable ;-)
+
+Current release
+===============
+
+. I'm working on Vimiax with a Dvorak layout. The '/' seems to be handled as
+  '&' with a qwerty layout.
+. Yank current URL (y).
+. Paste (goto) the yanked URL (p).
+. Add the '^c' command which stop loading.
+. Link hint to search are unreadable to this site: http://www.noiporno.com/.
+  Also on YouPorn link hints don't select the search field.
+. U.reload() should resend POST data (e.g. refreshing submitted forms) like the
+  builtin ^r command. Also it should works on view-source:// URLs too.
+. Allow to view source into another tab.
+. Exit with and without saving (ZZ and ZQ commands).
+. Stop loading the current page (^c). This feature requires that the content
+  scripts gets injected at "document_start" rather than _idle; this requires
+  some code refactoring. Note: kernel.org and some other site do works properly
+  with "document_start" but a lot of others doesn't works for some reason. This
+  is the main (unique?) problem to solve.
+. Auto-focus the currently found text, if it's a «clickable».
+. HTML5 input system may need ^i (insert mode)
+. Show a message when search is starting again from top/bottom.
+. See all XXX comments into the code.
+
+
+Further changes
+===============
+. Restore "tab" to a new window if it was another instance of Chrome.
+. It would be nice to have some filter which allows to parse text and get the
+  relevant content which will be used in a number of ways (like, e.g.  the
+  unlinked [link]http://somesite.com[/link] text of some forum. We could maybe
+  applies link hints to unlinked (no <a> tag) URI text...
+. On Facebook link hints doesn't works as expected on "Older posts".
+. Support for on-site search (e.g. Wikipedia, JQuery, Chrome API, etc.)
+. ]] and [[ should open the link into another tab if CTRL is pressed on.
+. Temporary data registry (D.reg in frontend.js) may be cleared up by just
+  leaving reg: {}, in order to let routines add whatever needed field.
+  Though it's needed to add empty objects like "modes", "reg", etc. Also,
+  the "keys" object should be placed elsewhere.
+  Currently routines must be adapted.
+. Improve H.isvisible(). Consider to move it to U.
+. Some element, (see Facebook "share" or "Language" selector) doesn't gets
+  handled by the linkhints. It's likely some other sites won't works too. This
+  may be an issue with increasing web2 pages. Not sure if it's fixable just via
+  isvisible().
+. Change the editor (E) to allow a call like E.parse(field, key), changing the
+  field relatively to the input key. This made things more flexible and allow
+  to easily attach the editor everywhere (see the next item).
+. Handle editor in insert mode (input fields only or textarea too?)
+. There should be a way to reverts the newtab/current tab flag for linkhints.
+  Though, I'm still thinking about it since I'm not sure it's really needed.
+. Pass-Through. Something like the following in D.reg would be enough:
+	passthrough: false, /* true, false, 'nextonly' */
+  I always use vimiax for my every day browsing without any needs for such
+  feature. Not sure if it's needed at all.
+. Extended-hints mode.
+. New tabs should follow the process model, not just be independents. 
+. Apply (bar) editor to the text field too.
+. gf return back to the site if it's already enabled.
+. Provide: o = entermode(D.modes.Insert).
+. Add others shift-[0-9] characters to the S.keyfix list.
+. Test it on MAC.
+. Search while writing. document.body.find()???
+. Use ^/ and ^? to start a search using last search text? This should simplify
+  a bit the search routines and errors handling. Maybe refactoring it would be
+  good.
+. Autofocus. Prevent the page to be clicked in order to gets keydown events.
+  See http://www.maremovie.com/Film/ to reproduce the problem.
+. Here the prompt of the status bar gets changed:
+	o http://filminstreaming.net/tag/cinema/
+	o http://www.dougmckenzie.nl/
+. Zoom management (style.zoom) conflicts with the builtin zoom system.
+. Injects content scripts via T.scan().
+. Notice when Vimiax is not able to manage a page (suggests the user to report
+  the page)
+. Provide a more vim-like interface
+	. Use fullscreen (or any other way) to remove the tabs bar
+	. Configurable scrollbar toggling (still handle mouse scrolling)
+. Handle meta key?
+. window.scroll*() doesn't work in some site like the following:
+	o http://ryan.rawswift.com/2009/02/15/fixed-that-bar-at-the-bottom-like-facebook/
+ It seems that if an inline overflow* is present, then the window.scroll*
+ routines doesn't works at all. Use the frontend.js/fixpage() routine to
+ workaround such pages.
+. Session management (while waiting for the API support).
+. Some keystroke should open the guide. So the next item borns spontaneous...
+. Write the guide.
+. Support for configuration file. Check wrong values.
+. Yank the current url.
+. Go to the url stored into the clipboard memory.
+. ^i open current editable fields somewhere with a web-editor or so.
+. Repeat last search when the search string is empty. It should be found a way
+  to implement incremental search in this scenario since E.setup() calls
+  B.unlock() which focus the bar input field. Any search, at this point, starts
+  from the begin (so, no incremental search). Does it is doable?
+. Add autocompletion support to the command line.
+. Handle bookmarks.
+
+
+Things to think about
+=====================
+
+. Add the "opts" argument to S.add(). Initially it should have two
+  options: one to specify if the routine have to deal with the
+  pre-keystrokes numbers itself or should be handled by the core (by
+  calling repeat()); another which give hints about if the command
+  should update the status bar or not.
+. Add an onChange handler to the status bar which reset the timer and
+  restart it in order to autohide the bar it's unused by StatusTimeout
+  milliseconds.
+
+
+
+Issues
+======
+Actually, the following issues can't be fixed:
+
+. The extension doesn't works on https://chrome.google.com/extensions/*
+  (nor in its view-source://)
+. There is no toolbars API yet, so the only way is to use HTML bars.
+. Tabs can't be hidden (despite kiosk mode and fullscreen).
+. Extensions doesn't works in chrome:// pages.
+. Clipboard handling (shift-ins) doesn't paste anything. To be check.
+

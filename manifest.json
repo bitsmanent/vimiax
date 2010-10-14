@@ -1,0 +1,26 @@
+{
+	"name":	"Vimiax",
+	"version": "0.0.1",
+	"description": "Brings Vim interface to Google Chrome",
+	//"update_url": "",
+
+	"permissions": [
+		"tabs",
+		"bookmarks",
+		"history",
+		"http://127.0.0.1/*", "http://*/*"
+	],
+	"background_page": "src/html/main.html",
+	"content_scripts": [{
+		"js": [
+			"src/js/hints.js",
+			"src/js/parser.js",
+			"src/js/frontendclasses.js",
+			"src/js/frontend.js"
+		],
+		//"css": ["src/css/main.css"],
+		"all_frames": true,
+		"run_at": "document_idle",
+		"matches": ["http://*/*", "https://*/*", "ftp://*/*", "file://*/*"]
+	}]
+}
