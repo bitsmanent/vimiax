@@ -31,6 +31,7 @@ Current release
 
 Further changes
 ===============
+. Make a web page.
 . Restore "tab" to a new window if it was another instance of Chrome.
 . It would be nice to have some filter which allows to parse text and get the
   relevant content which will be used in a number of ways (like, e.g.  the
