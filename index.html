@@ -2,9 +2,55 @@
 <html>
 	<head>
 		<title>Vimiax home page</title>
+		<style type="text/css">
+		body {
+			margin: 0;
+			font-style: arial;
+			font-size: 14px;
+		}
+		p { padding: 0 10px }
+		ul { list-style-type: square }
+		#main {
+			width: 600px;
+			margin: 0 auto;
+		}
+		#head {
+			border-radius: 0 0 10px 10px;
+			padding: 10px;
+			background: #abc;
+		}
+		</style>
 	</head>
 
 	<body>
-		Coming soon...
+		<div id="main">
+			<div id="head">
+				Coming soon...
+			</div>
+
+			<div id="content">
+				<p>
+					Vimiax is a <a href="#">Google Chrome</a> extension which brings the
+					<a href="http://vim.org">Vim</a> interface to the browser. It allows
+					to full control the browser actions (navigation, history, bookmarks,
+					sessions, etc.) using the Vim key bindings; thus, without using the
+					mouse at all.
+				</p>
+
+				<p>
+					The current implementation actually includes the following features:
+
+					<ul>
+						<li>Scrolling support</li>
+						<li>Navigation utilities</li>
+						<li>History browsing</li>
+						<li>Tabs management</li>
+						<li>Zoom facilities</li>
+						<li>Smart link hints</li>
+						<li>Incremental search</li>
+					</ul>
+				</p>
+			</div>
+		</div>
 	</body>
 </html>
