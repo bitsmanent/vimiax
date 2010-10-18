@@ -2,22 +2,56 @@
 <html>
 	<head>
 		<title>Vimiax home page</title>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+		<meta name="description" content="Vimiax - Brings the Vim interface to Google Chrome">
+		<meta name="keywords" content="vimiax, vim, chromium extension, google chrome extension">
+
 		<style type="text/css">
 		body {
 			margin: 0;
 			font-style: arial;
 			font-size: 14px;
+			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 		}
-		p { padding: 0 10px }
+		div { padding: 0 10px }
 		ul { list-style-type: square }
+		a {
+			text-decoration: none;
+			color: #e90;
+		}
+		a:hover { text-decoration: underline }
 		#main {
-			width: 600px;
+			width: 650px;
 			margin: 0 auto;
 		}
 		#head {
 			border-radius: 0 0 10px 10px;
-			padding: 10px;
-			background: #abc;
+			padding: 5px;
+			background: #eef;
+			text-align: center;
+		}
+		#head .title  {
+			font-size: 20px;
+			display: block;
+		}
+		#head .descr {
+			font-style: italic;
+		}
+		#footer {
+			padding: 3px 0;
+			border-radius: 0 0 10px 10px;
+			text-align: center;
+			font-size: 12px;
+			background: #eef;
+		}
+		#footer p { margin: 5px 0 }
+		#footer .credits { }
+		.notice {
+			border-radius: 5px;
+			background: #eee;
+			padding: 5px;
 		}
 		</style>
 	</head>
@@ -25,16 +59,32 @@
 	<body>
 		<div id="main">
 			<div id="head">
-				Coming soon...
+				<span class="title">Vimiax</span>
+				<span class="descr">Brings the Vim interface to Google Chrome</span>
 			</div>
 
 			<div id="content">
 				<p>
-					Vimiax is a <a href="#">Google Chrome</a> extension which brings the
-					<a href="http://vim.org">Vim</a> interface to the browser. It allows
-					to full control the browser actions (navigation, history, bookmarks,
-					sessions, etc.) using the Vim key bindings; thus, without using the
-					mouse at all.
+					Vimiax is a <a href="#">Google Chrome</a> extension which aims to port
+					the <a href="http://vim.org">Vim</a> interface to the browser. It allows
+					to full control the browser (navigation, history, bookmarks, sessions,
+					etc.) using Vim-like key bindings; thus, without using the mouse at all.
+				</p>
+
+				<p class="notice">
+					Note: the project is a <i>work in progress</i>, no stable releases has
+					been published yet but as far as I can tell the extension seems enough
+					stable to be used by everyone. <a href="#">Try it out</a>.
+					<br>
+					If you're a developer <a href="#">download</a> or <a href="#">browse</a>
+					the sources in order to start using and (hopefully) contributing to
+					Vimiax. It's needed lots of testing and at least a stub of user guide;
+					that's mainly why it's not so easy for non-developers to try out which
+					keycombo do what thing and it's not so easy for a developer to find the
+					time to write a bit of documentation. So, if you are not a developer but
+					you think to be able to understand how Vimiax works or how to use it,
+					feel free to write something about and <a href="#">email me</a>. You can
+					of course add credits to yourself if you wants.
 				</p>
 
 				<p>
@@ -49,7 +99,28 @@
 						<li>Smart link hints</li>
 						<li>Incremental search</li>
 					</ul>
+
+					Further changes will likely include sessions and bookmarks manager.
+					We'll have to wait for the Chromium API to be extendend in many ways
+					in order to provides a quality product merely comparable with Mozilla
+					alternatives like Vimperator. First, it's needed to have a support for
+					the bars which will allow us to mantain a clear and faster extension.
+					That's why there's the Vimiax own bar implemented at the moment. Second,
+					things like undo closed tabs or so are better implemented in-browser.
+					So, we don't need anymore to mantain a list of all tabs (opened/closed)
+					in order to provides such features; remember that the feature is also
+					provided by the browser though there's no API hook for the extensions
+					yet.
 				</p>
+			</div>
+
+			<div id="footer">
+				<p class="links">
+					<a href="#">Project page</a>
+					⋅ <a href="#">Wiki</a>
+					⋅ <a href="#">Sources</a>
+				</p>
+				<p class="credits">© 2010 <a href="http://clamiax.github.com">Claudio M. Alessi</a></p>
 			</div>
 		</div>
 	</body>
