@@ -1,3 +1,29 @@
+Vimiax - Brings Vim interface to Google Chrome
+==============================================
+Vimiax is a Google Chrome extension which allow the users to interacts with the
+browser in an easy and fast way using Vim-like key bindings.
 
-Brings Vim interface to Google Chrome.
 
+Requirements
+------------
+In order to use Vimiax you need the Google Chrome browser installed.
+
+
+Installation
+------------
+Download the extension and load it from the browser.
+
+If you are using the sources, checkout the tree and load the unpackaged
+extensions by using the developer mode from the extensions manager.
+
+
+Running Vimiax
+--------------
+After installation only reloaded tabs will be affected by the extension so
+you have to reload them by hand. Alternatively, just restart your browser.
+
+
+Configuration
+-------------
+The configuration of Vimiax is currently done by editing the source code.
+Configuration file support has been planned for further release of Vimiax.
