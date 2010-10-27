@@ -60,6 +60,8 @@ Further changes
 	passthrough: false, /* true, false, 'nextonly' */
   I always use vimiax for my every day browsing without any needs for such
   feature. Not sure if it's needed at all.
+  EDIT: well, it's obviously needed in case like the following:
+  https://developer.mozilla.org/samples/raycaster/RayCaster.html
 . Extended-hints mode.
 . New tabs should follow the process model, not just be independents. 
 . Apply (bar) editor to the text field too.
@@ -76,6 +78,7 @@ Further changes
 . Here the prompt of the status bar gets changed:
 	o http://filminstreaming.net/tag/cinema/
 	o http://www.dougmckenzie.nl/
+. The prompt bar doesn't show properly on Shadowboxes.
 . Zoom management (style.zoom) conflicts with the builtin zoom system.
 . Injects content scripts via T.scan().
 . Notice when Vimiax is not able to manage a page (suggests the user to report
