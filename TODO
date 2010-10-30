@@ -7,13 +7,10 @@ incomplete or, sometimes, unanderstandable ;-)
 Current release
 ===============
 
-. I'm working on Vimiax with a Dvorak layout. The '/' seems to be handled as
-  '&' with a qwerty layout.
-. Yank current URL (y).
+. I use dvorak as my default layout where vimiax works properly. Though, the
+  '/' is handled as '&' when switch to qwerty.
+. Yank the current url.
 . Paste (goto) the yanked URL (p).
-. Add the '^c' command which stop loading.
-. Link hint to search are unreadable to this site: http://www.noiporno.com/.
-  Also on YouPorn link hints don't select the search field.
 . U.reload() should resend POST data (e.g. refreshing submitted forms) like the
   builtin ^r command. Also it should works on view-source:// URLs too.
 . Allow to view source into another tab.
@@ -31,12 +28,13 @@ Current release
 
 Further changes
 ===============
-. Make a web page.
+. Improves the web page.
+. Add the '^c' command which stop loading.
 . Restore "tab" to a new window if it was another instance of Chrome.
 . It would be nice to have some filter which allows to parse text and get the
-  relevant content which will be used in a number of ways (like, e.g.  the
-  unlinked [link]http://somesite.com[/link] text of some forum. We could maybe
-  applies link hints to unlinked (no <a> tag) URI text...
+  relevant content which will be used in a number of ways like in the case of
+  the bbcode links in forums, etc. We could maybe applies link hints to
+  unlinked (no <a> tag) URI text...
 . On Facebook link hints doesn't works as expected on "Older posts".
 . Support for on-site search (e.g. Wikipedia, JQuery, Chrome API, etc.)
 . ]] and [[ should open the link into another tab if CTRL is pressed on.
@@ -73,37 +71,32 @@ Further changes
 . Use ^/ and ^? to start a search using last search text? This should simplify
   a bit the search routines and errors handling. Maybe refactoring it would be
   good.
-. Autofocus. Prevent the page to be clicked in order to gets keydown events.
-  See http://www.maremovie.com/Film/ to reproduce the problem.
-. Here the prompt of the status bar gets changed:
-	o http://filminstreaming.net/tag/cinema/
-	o http://www.dougmckenzie.nl/
-. The prompt bar doesn't show properly on Shadowboxes.
-. Zoom management (style.zoom) conflicts with the builtin zoom system.
+. The prompt bar is weird on Shadowboxes.
+. Zoom management conflicts with the builtin zoom system.
 . Injects content scripts via T.scan().
-. Notice when Vimiax is not able to manage a page (suggests the user to report
-  the page)
+. Notice when vimiax is not able to manage a page (suggests the user to report
+  the page).
 . Provide a more vim-like interface
-	. Use fullscreen (or any other way) to remove the tabs bar
-	. Configurable scrollbar toggling (still handle mouse scrolling)
+. Find a way to remove the tabs bar (fullscreen? kiosk?)
+. Configurable scrollbar toggling (still handle mouse scrolling)
 . Handle meta key?
-. window.scroll*() doesn't work in some site like the following:
-	o http://ryan.rawswift.com/2009/02/15/fixed-that-bar-at-the-bottom-like-facebook/
- It seems that if an inline overflow* is present, then the window.scroll*
- routines doesn't works at all. Use the frontend.js/fixpage() routine to
- workaround such pages.
+. It seems that if an inline overflow* is present, then the window.scroll*
+  routines doesn't works at all. Use the frontend.js/fixpage() routine to
+  workaround such pages.
 . Session management (while waiting for the API support).
 . Some keystroke should open the guide. So the next item borns spontaneous...
 . Write the guide.
-. Support for configuration file. Check wrong values.
-. Yank the current url.
+. Configuration file.
 . Go to the url stored into the clipboard memory.
 . ^i open current editable fields somewhere with a web-editor or so.
-. Repeat last search when the search string is empty. It should be found a way
-  to implement incremental search in this scenario since E.setup() calls
-  B.unlock() which focus the bar input field. Any search, at this point, starts
-  from the begin (so, no incremental search). Does it is doable?
+. Repeat the last search when the search string into the prompt is empty. It
+  may be tricky since the prompt (editor) steal the focus to the page losting
+  the chance of an incremental search.
 . Add autocompletion support to the command line.
+. Unify tabs informations. Well, I'll have to RTFM a bit but i think would be
+  nice to mantains a set of shared informations between content script of
+  various opened tabs. It would help in lots of way (e.g. share searches
+  between tabs, etc.)
 . Handle bookmarks.
 
 
@@ -120,15 +113,28 @@ Things to think about
   milliseconds.
 
 
-
 Issues
 ======
 Actually, the following issues can't be fixed:
 
-. The extension doesn't works on https://chrome.google.com/extensions/*
+. The extension doesn't work on https://chrome.google.com/extensions/*
   (nor in its view-source://)
 . There is no toolbars API yet, so the only way is to use HTML bars.
 . Tabs can't be hidden (despite kiosk mode and fullscreen).
 . Extensions doesn't works in chrome:// pages.
 . Clipboard handling (shift-ins) doesn't paste anything. To be check.
+
+
+Problematic pages
+=================
+The following is a list of pages which behaves weirdly or just doesn't work in
+some manner or another.
+
+. http://forum.html.it/forum/showthread/t-1284667.html (link hints)
+. http://ryan.rawswift.com/2009/02/15/fixed-that-bar-at-the-bottom-like-facebook/ (window.scroll*())
+. Here the prompt of the status bar gets changed:
+. http://filminstreaming.net/tag/cinema/ (prompt bar)
+. http://www.dougmckenzie.nl/ (prompt bar)
+. http://www.noiporno.com/ (link hints - unreadable)
+. http://www.youporn.com/ (link hints - unhandled search field)
 
