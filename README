@@ -4,6 +4,11 @@ Vimiax is a Google Chrome extension which allow the users to interacts with the
 browser in an easy and fast way using Vim-like key bindings.
 
 
+=========================================
+NOTE: this project has been discontinued.
+=========================================
+
+
 Requirements
 ------------
 In order to use Vimiax you need the Google Chrome browser installed.
